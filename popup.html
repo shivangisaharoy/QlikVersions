@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>QlikVersions</title>
+  <link rel="stylesheet" href="popup.css" />
+
+</head>
+<body>
+  <div id="app">
+
+    <!-- Header -->
+    <header>
+      <div class="header-title">
+        <img src="icon-branch.png" class="logo" alt="" />
+        <span>QlikVersions <span class="header-sub">— Versioning Tool</span></span>
+      </div>
+    </header>
+
+    <!-- App context bar -->
+    <div id="app-bar">
+      <span id="app-name">No app detected</span>
+      <span id="app-id-label"></span>
+    </div>
+
+    <!-- Snapshot bar -->
+    <div class="action-bar">
+      <input id="snapshot-label" type="text" placeholder="Label (optional)" maxlength="60" />
+      <button id="btn-snapshot" class="btn-primary" disabled>Snapshot</button>
+    </div>
+
+    <!-- Version list -->
+    <div id="version-list-wrap">
+      <div id="version-list"></div>
+      <div id="no-versions" class="empty-msg">No versions saved yet.<br>Open the Data Load Editor and save to create one.</div>
+    </div>
+
+    <!-- Diff panel (hidden until 2 versions selected) -->
+    <div id="diff-panel" class="hidden">
+      <div class="diff-header">
+        <span id="diff-label">Comparing versions</span>
+        <button id="btn-close-diff">✕</button>
+      </div>
+      <div id="diff-output"></div>
+    </div>
+
+    <!-- Settings / Servers panel -->
+    <div id="settings-bar">
+      <div class="settings-toggle-row">
+        <span class="settings-icon">⚙</span>
+        <span class="settings-label">Servers:</span>
+        <span id="server-count-badge" class="server-count-badge">none</span>
+        <button id="btn-toggle-settings" class="btn-settings-toggle">▲</button>
+      </div>
+      <div id="settings-panel" class="hidden">
+        <div id="server-list"></div>
+        <div class="settings-add-row">
+          <input id="server-url-input" type="url" placeholder="https://your-qlik-server.com" />
+          <button id="btn-add-server" class="btn-add-server">Add</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="diff.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
